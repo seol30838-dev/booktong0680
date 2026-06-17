@@ -113,6 +113,39 @@ body { font-family:'Noto Sans KR', sans-serif; background:#fff; color:#1a1a2e; l
 }
 .sec-desc { font-size:16px; color:#6B7280; margin-bottom:44px; line-height:1.85; }
 
+/* ── 필요한 아이 체크리스트 ── */
+.check-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin-bottom:44px; }
+.check-item {
+  display:flex; align-items:flex-start; gap:14px;
+  background:#fff; border-radius:16px;
+  border:1.5px solid #DBEAFE;
+  padding:18px 20px;
+  box-shadow:0 2px 8px rgba(21,101,192,.05);
+}
+.check-icon { font-size:22px; flex-shrink:0; margin-top:2px; }
+.check-item p { font-size:15px; color:#374151; line-height:1.65; font-weight:500; }
+.check-item p strong { color:#1E40AF; }
+.need-banner {
+  background:linear-gradient(135deg,#1E40AF,#2563EB);
+  border-radius:20px; padding:32px 28px; text-align:center; color:#fff; margin-top:8px;
+}
+.need-banner p { font-size:17px; line-height:1.9; opacity:.92; }
+.need-banner strong { font-size:20px; display:block; margin-bottom:10px; font-weight:900; }
+
+/* ── 이유 카드 ── */
+.why-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+.why-card {
+  background:#fff; border-radius:20px;
+  border:1.5px solid #DBEAFE;
+  padding:30px 22px;
+  box-shadow:0 2px 8px rgba(21,101,192,.06);
+  transition:transform .25s, box-shadow .25s;
+}
+.why-card:hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(21,101,192,.14); }
+.why-num { font-size:13px; font-weight:800; color:#93C5FD; letter-spacing:2px; margin-bottom:12px; }
+.why-card h3 { font-size:17px; font-weight:800; color:#1E40AF; margin-bottom:10px; line-height:1.4; }
+.why-card p { font-size:14px; color:#6B7280; line-height:1.7; }
+
 /* ── 특징 카드 ── */
 .feat-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; }
 .feat-card {
@@ -353,8 +386,66 @@ footer strong { color:#fff; font-size:15px; }
   </div>
 </header>
 
-<!-- 왜 지금 독서인가 -->
+<!-- 이런 아이라면 -->
+<section class="sec sec-bg">
+  <div class="sec-inner">
+    <div class="sec-tag">우리 아이 점검</div>
+    <h2 class="sec-title">혹시 우리 아이, 이런 모습인가요?</h2>
+    <p class="sec-desc">책을 읽어도 내용을 기억 못 한다면, 독서량의 문제가 아니라 <strong>읽기 방법</strong>의 문제입니다.</p>
+    <div class="check-grid">
+      <div class="check-item"><span class="check-icon">📖</span><p>책을 읽고도 내용을 물어보면 <strong>망설이거나 모른다</strong>고 한다</p></div>
+      <div class="check-item"><span class="check-icon">📝</span><p>교과서 지문을 읽다가 <strong>중간에 포기</strong>하거나 집중을 못 한다</p></div>
+      <div class="check-item"><span class="check-icon">✏️</span><p>자기 생각을 말이나 글로 <strong>표현하는 것을 어려워</strong>한다</p></div>
+      <div class="check-item"><span class="check-icon">😔</span><p>긴 글만 보면 <strong>지루해하고 집중하지 못</strong>한다</p></div>
+      <div class="check-item"><span class="check-icon">📚</span><p>책을 많이 읽는데도 <strong>국어 성적이 오르지 않는다</strong></p></div>
+      <div class="check-item"><span class="check-icon">🔤</span><p>받아쓰기나 어휘력이 약하고 <strong>문장 구조를 파악하기 어려워</strong>한다</p></div>
+    </div>
+    <div class="need-banner">
+      <strong>✅ 하나라도 해당된다면, 책통클럽이 도움이 됩니다</strong>
+      <p>많이 읽는다고 저절로 문해력이 좋아지는 것이 아닙니다.<br>
+      문장의 의미를 정확히 파악하지 못하면 아무리 많이 읽어도 소용없습니다.<br>
+      책통클럽은 <strong>읽는 방법</strong>을 훈련합니다.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 책통클럽이 필요한 이유 -->
 <section class="sec">
+  <div class="sec-inner">
+    <div class="sec-tag">왜 책통클럽인가</div>
+    <h2 class="sec-title">책통클럽이 필요한 이유</h2>
+    <p class="sec-desc">독서 교육의 해결책은 <strong>'많이 읽히는 것'</strong>이 아니라 <strong>'제대로 읽는 훈련'</strong>입니다.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-num">REASON 01</div>
+        <h3>활자 인지부터<br>다시 훈련합니다</h3>
+        <p>눈으로만 훑거나 다시 읽는 '회기 현상'을 방지하는 정독법 훈련으로 글자 하나하나를 정확하게 인식하는 기초 체력을 만듭니다.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">REASON 02</div>
+        <h3>핵심을 찾고<br>내 것으로 만듭니다</h3>
+        <p>단순히 읽고 끝나는 것이 아니라 탐구독서 워크북을 통해 핵심을 파악하고 스스로 생각을 정리하는 능력을 키웁니다.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">REASON 03</div>
+        <h3>시지각 훈련으로<br>집중력을 높입니다</h3>
+        <p>안구운동 훈련을 통해 뇌를 깨우고 집중력을 높입니다. 수업 시작 전 6분의 훈련으로 학습 효율이 달라집니다.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">REASON 04</div>
+        <h3>수능까지 이어지는<br>독해력을 만듭니다</h3>
+        <p>초등 때 잡힌 독해력과 사고력은 중·고등 국어는 물론 수학 문장제, 과학 지문 등 모든 과목의 기초가 됩니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 왜 지금 독서인가 -->
+<section class="sec sec-bg">
   <div class="sec-inner">
     <div class="sec-tag">WHY READING</div>
     <h2 class="sec-title">AI 시대, 스스로 생각하는 힘</h2>
