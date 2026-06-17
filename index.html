@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>책통클럽 쌍용더플래티넘부평센터</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif; background: #f4f8ff; color: #1a1a2e; line-height: 1.7; }
+
+  .hero { background: linear-gradient(135deg, #1565C0 0%, #1976D2 50%, #1E88E5 100%); color: #fff; padding: 60px 24px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content:''; position:absolute; top:-60px; right:-60px; width:240px; height:240px; border-radius:50%; background:rgba(255,255,255,0.06); }
+  .hero::after  { content:''; position:absolute; bottom:-80px; left:-40px; width:300px; height:300px; border-radius:50%; background:rgba(255,255,255,0.04); }
+  .hero-logo { width:180px; height:180px; margin:0 auto 24px; display:block; border-radius:50%; object-fit:cover; border:4px solid rgba(255,255,255,0.4); position:relative; }
+  .since-badge { display:inline-block; background:rgba(255,255,255,0.18); border:1px solid rgba(255,255,255,0.35); border-radius:20px; padding:4px 16px; font-size:13px; letter-spacing:1px; margin-bottom:20px; }
+  .hero h1 { font-size:clamp(28px,6vw,52px); font-weight:800; letter-spacing:-1px; margin-bottom:10px; }
+  .hero h1 span { color:#90CAF9; }
+  .hero .subtitle { font-size:clamp(15px,2.5vw,20px); opacity:.88; margin-bottom:32px; font-weight:400; }
+  .hero-cta { display:inline-flex; align-items:center; gap:8px; background:#fff; color:#1565C0; border-radius:30px; padding:14px 32px; font-size:16px; font-weight:700; text-decoration:none; transition:transform .2s; }
+  .hero-cta:hover { transform:scale(1.04); }
+
+  section { padding:64px 24px; max-width:900px; margin:0 auto; }
+  .section-label { display:inline-block; background:#E3F2FD; color:#1565C0; font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:4px 14px; border-radius:20px; margin-bottom:12px; }
+  .section-title { font-size:clamp(22px,4vw,32px); font-weight:800; color:#1a1a2e; margin-bottom:8px; letter-spacing:-.5px; }
+  .section-desc { font-size:16px; color:#5F5E5A; margin-bottom:40px; line-height:1.8; }
+  .divider { height:1px; background:#BBDEFB; max-width:900px; margin:0 auto; }
+
+  .card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; }
+  .feat-card { background:#fff; border-radius:16px; border:1px solid #BBDEFB; padding:28px 22px; text-align:center; transition:transform .2s,box-shadow .2s; }
+  .feat-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(25,118,210,.12); }
+  .feat-icon { width:56px; height:56px; border-radius:50%; background:#E3F2FD; display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-size:26px; }
+  .feat-card h3 { font-size:16px; font-weight:700; color:#0D47A1; margin-bottom:8px; }
+  .feat-card p  { font-size:14px; color:#5F5E5A; line-height:1.6; }
+
+  .lesson-wrap { display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:center; }
+  @media(max-width:600px){ .lesson-wrap { grid-template-columns:1fr; } }
+  .circle-diagram { width:260px; height:260px; border-radius:50%; border:3px solid #90CAF9; margin:0 auto; background:conic-gradient(#90CAF9 0deg 30deg,#42A5F5 30deg 66deg,#1976D2 66deg 216deg,#1565C0 216deg 360deg); display:flex; align-items:center; justify-content:center; }
+  .circle-center { width:120px; height:120px; border-radius:50%; background:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; box-shadow:0 2px 12px rgba(0,0,0,.08); }
+  .circle-center .num  { font-size:26px; font-weight:800; color:#1565C0; }
+  .circle-center .unit { font-size:12px; color:#5F5E5A; }
+  .lesson-steps { list-style:none; display:flex; flex-direction:column; gap:14px; }
+  .lesson-step { display:flex; align-items:flex-start; gap:14px; background:#fff; border-radius:12px; border:1px solid #BBDEFB; padding:14px 16px; }
+  .step-dot { min-width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; color:#fff; }
+  .step-dot.s1 { background:#90CAF9; color:#0D47A1; }
+  .step-dot.s2 { background:#42A5F5; color:#0D47A1; }
+  .step-dot.s3 { background:#1976D2; }
+  .step-dot.s4 { background:#1565C0; }
+  .step-info h4 { font-size:14px; font-weight:700; color:#1a1a2e; margin-bottom:3px; }
+  .step-info p  { font-size:13px; color:#5F5E5A; line-height:1.5; }
+
+  .price-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; }
+  .price-card { background:#fff; border-radius:16px; border:1.5px solid #BBDEFB; padding:28px 20px; text-align:center; position:relative; overflow:hidden; transition:transform .2s; }
+  .price-card:hover { transform:translateY(-4px); }
+  .price-card.featured { border-color:#1976D2; background:linear-gradient(160deg,#E3F2FD 0%,#fff 60%); }
+  .price-badge { position:absolute; top:0; right:0; background:#1976D2; color:#fff; font-size:11px; font-weight:700; padding:4px 14px; border-bottom-left-radius:10px; }
+  .price-level  { font-size:13px; color:#5F5E5A; margin-bottom:4px; font-weight:600; letter-spacing:1px; }
+  .price-amount { font-size:30px; font-weight:800; color:#0D47A1; margin-bottom:4px; }
+  .price-amount span { font-size:16px; font-weight:500; }
+  .price-time   { display:inline-block; background:#E3F2FD; color:#1565C0; font-size:12px; font-weight:600; padding:3px 12px; border-radius:20px; margin-bottom:16px; }
+  .price-detail { font-size:13px; color:#888780; line-height:1.8; }
+  .price-detail li { list-style:none; padding:3px 0; border-top:1px solid #f0f0f0; }
+  .price-detail li:first-child { border-top:none; }
+
+  .info-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+  .info-box { background:#fff; border-radius:12px; border-left:4px solid #1976D2; border-top:1px solid #BBDEFB; border-right:1px solid #BBDEFB; border-bottom:1px solid #BBDEFB; padding:20px 18px; }
+  .info-box h3 { font-size:15px; font-weight:700; color:#1565C0; margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+  .info-box ul  { list-style:none; }
+  .info-box ul li { font-size:14px; color:#444441; padding:4px 0 4px 14px; position:relative; line-height:1.6; }
+  .info-box ul li::before { content:'·'; position:absolute; left:0; color:#1976D2; font-weight:700; }
+
+  .phil-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px; }
+  .phil-card { background:#fff; border-radius:14px; border:1px solid #BBDEFB; padding:24px 18px; text-align:center; }
+  .phil-num  { font-size:36px; font-weight:900; color:#E3F2FD; line-height:1; margin-bottom:4px; }
+  .phil-card h4 { font-size:16px; font-weight:700; color:#0D47A1; margin-bottom:8px; }
+  .phil-card p  { font-size:13px; color:#5F5E5A; line-height:1.6; }
+
+  .cta-section { background:linear-gradient(135deg,#0D47A1 0%,#1976D2 100%); padding:64px 24px; text-align:center; color:#fff; }
+  .cta-section h2 { font-size:clamp(22px,4vw,32px); font-weight:800; margin-bottom:12px; }
+  .cta-section p  { font-size:16px; opacity:.88; margin-bottom:32px; }
+  .contact-cards { display:flex; flex-wrap:wrap; justify-content:center; gap:16px; margin-bottom:36px; }
+  .contact-card  { background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.3); border-radius:12px; padding:16px 24px; min-width:180px; }
+  .contact-card .label { font-size:12px; opacity:.75; margin-bottom:4px; letter-spacing:1px; }
+  .contact-card .value { font-size:18px; font-weight:700; }
+  .btn-white { display:inline-block; background:#fff; color:#1565C0; font-size:16px; font-weight:700; padding:14px 40px; border-radius:30px; text-decoration:none; transition:transform .2s; }
+  .btn-white:hover { transform:scale(1.04); }
+
+  footer { background:#0D47A1; color:#BBDEFB; text-align:center; padding:28px 24px; font-size:13px; line-height:2; }
+  footer strong { color:#fff; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img src="logo.jpg" alt="책통클럽 로고" class="hero-logo">
+  <div class="since-badge">since 2001 · 프리미엄 독서 교육</div>
+  <h1>책<span>으로</span> 통하는<br>아이들</h1>
+  <p class="subtitle">책통클럽 쌍용더플래티넘부평센터</p>
+  <a href="tel:010-4215-0680" class="hero-cta">📞 무료 체험 신청하기</a>
+</header>
+
+<section>
+  <div class="section-label">왜 지금 독서인가</div>
+  <h2 class="section-title">AI 시대, 스스로 생각하는 힘</h2>
+  <p class="section-desc">단순한 지식보다 스스로 질문하고, 이해하고, 판단하는 능력이 더 중요해졌습니다.<br>그 모든 힘의 시작은 <strong>독서</strong>입니다.</p>
+  <div class="card-grid">
+    <div class="feat-card"><div class="feat-icon">❓</div><h3>질문하는 힘</h3><p>텍스트 속 맥락을 파악하고 핵심 질문을 스스로 던집니다</p></div>
+    <div class="feat-card"><div class="feat-icon">💡</div><h3>이해하는 힘</h3><p>정독법으로 활자를 정확하게 인지하고 내용을 깊이 이해합니다</p></div>
+    <div class="feat-card"><div class="feat-icon">✍️</div><h3>표현하는 힘</h3><p>탐구독서와 워크북으로 읽은 것을 내 언어로 정확히 씁니다</p></div>
+    <div class="feat-card"><div class="feat-icon">🎯</div><h3>수능까지 연결</h3><p>독해력과 사고력은 국어는 물론 수학·과학의 기초가 됩니다</p></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <div class="section-label">수업 구성</div>
+  <h2 class="section-title">책통클럽만의 3잘 독서 시스템</h2>
+  <p class="section-desc">잘 읽고, 잘 찾고, 잘 쓰는 체계적인 60분 수업으로 독서 효과를 극대화합니다.</p>
+  <div class="lesson-wrap">
+    <div class="circle-diagram">
+      <div class="circle-center"><div class="num">60분</div><div class="unit">최적 수업</div></div>
+    </div>
+    <ul class="lesson-steps">
+      <li class="lesson-step"><div class="step-dot s1">5분</div><div class="step-info"><h4>성공의 함성</h4><p>긍정적인 마인드셋 형성으로 수업 집중력 UP</p></div></li>
+      <li class="lesson-step"><div class="step-dot s2">6분</div><div class="step-info"><h4>안구 운동</h4><p>뇌를 깨워 집중력을 높이는 시지각 훈련</p></div></li>
+      <li class="lesson-step"><div class="step-dot s3">25분</div><div class="step-info"><h4>정독법 훈련</h4><p>활자 인지 능력 극대화, 읽기 속도와 정확도 향상</p></div></li>
+      <li class="lesson-step"><div class="step-dot s4">25분</div><div class="step-info"><h4>탐구 독서</h4><p>워크북으로 사실적 이해와 표현력 동시 훈련</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <div class="section-label">교육 철학</div>
+  <h2 class="section-title">개인별 맞춤 독서 로드맵</h2>
+  <p class="section-desc">모든 아이는 다릅니다. 레벨 테스트를 통해 각 아이에게 꼭 맞는 단계부터 시작합니다.</p>
+  <div class="phil-grid">
+    <div class="phil-card"><div class="phil-num">01</div><h4>레벨 진단</h4><p>입회 전 독서 능력 정밀 진단테스트로 정확한 시작 단계 결정</p></div>
+    <div class="phil-card"><div class="phil-num">02</div><h4>단계별 교재</h4><p>초등 저학년~고등까지 체계적인 단계별 정독법 읽기 훈련서 사용</p></div>
+    <div class="phil-card"><div class="phil-num">03</div><h4>탐구 워크북</h4><p>매달 평균 4권의 탐구독서 워크북으로 사고력과 표현력 균형 발달</p></div>
+    <div class="phil-card"><div class="phil-num">04</div><h4>지속적 상담</h4><p>학부모 상담을 통해 아이의 성장 과정과 변화를 함께 공유합니다</p></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <div class="section-label">교육비 안내</div>
+  <h2 class="section-title">투명한 교육비 구조</h2>
+  <p class="section-desc">주 2회(월 8회) 기준이며, 매달 워크북이 포함되어 있습니다.</p>
+  <div class="price-grid">
+    <div class="price-card">
+      <div class="price-level">초등부</div><div class="price-amount">17만<span>원</span></div>
+      <div class="price-time">70분 수업</div>
+      <ul class="price-detail"><li>주 2회 · 월 8회 수업</li><li>월 1회 자유독서 및 어휘 수업</li><li>탐구독서 워크북 포함</li></ul>
+    </div>
+    <div class="price-card featured">
+      <div class="price-badge">추천</div>
+      <div class="price-level">중등부</div><div class="price-amount">19만<span>원</span></div>
+      <div class="price-time">80분 수업</div>
+      <ul class="price-detail"><li>주 2회 · 월 8회 수업</li><li>월 1회 자유독서 및 어휘 수업</li><li>탐구독서 워크북 포함</li></ul>
+    </div>
+    <div class="price-card">
+      <div class="price-level">고등부</div><div class="price-amount">21만<span>원</span></div>
+      <div class="price-time">90분 수업</div>
+      <ul class="price-detail"><li>주 2회 · 월 8회 수업</li><li>월 1회 자유독서 및 어휘 수업</li><li>탐구독서 워크북 포함</li></ul>
+    </div>
+  </div>
+  <div style="margin-top:16px;background:#E3F2FD;border-radius:12px;padding:16px 20px;font-size:14px;color:#0D47A1;">
+    📚 <strong>정독법 읽기 훈련서(5권)</strong>는 첫 달 9만원 구매 · 약 10개월 사용 가능
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <div class="section-label">운영 안내</div>
+  <h2 class="section-title">센터 이용 안내</h2>
+  <p class="section-desc">편안하고 체계적인 환경에서 아이들이 독서에 집중할 수 있도록 운영합니다.</p>
+  <div class="info-grid">
+    <div class="info-box">
+      <h3>🕐 운영 시간</h3>
+      <ul><li>수업 시간: 13:00 ~ 19:00</li><li>운영일: 월요일 ~ 금요일</li><li>공휴일 및 국가지정 임시공휴일 휴강</li></ul>
+    </div>
+    <div class="info-box">
+      <h3>💳 납부 방법</h3>
+      <ul><li>매월 20일까지 선납</li><li>결제선생 (비대면 모바일 카드)</li><li>단말기 결제 / 현금 결제</li><li>이음카드 결제 가능</li></ul>
+    </div>
+    <div class="info-box">
+      <h3>📋 기타 사항</h3>
+      <ul><li>결석 시 해당 월 내 보강 가능</li><li>휴원은 전월 20일까지 안내 필요</li><li>수업 시작 전 핸드폰 지정 장소 보관</li><li>환불: 남은 수업 일수 기준 계산</li></ul>
+    </div>
+  </div>
+</section>
+
+<div class="cta-section">
+  <h2>지금 바로 무료 체험을 신청하세요!</h2>
+  <p>레벨 진단 테스트 → 시범 수업 → 입회 상담까지 부담 없이 경험해보세요.</p>
+  <div class="contact-cards">
+    <div class="contact-card"><div class="label">전화 상담</div><div class="value">010-4215-0680</div></div>
+    <div class="contact-card"><div class="label">위치</div><div class="value">쌍용더플래티넘부평</div></div>
+    <div class="contact-card"><div class="label">수업 시간</div><div class="value">13:00 ~ 19:00</div></div>
+  </div>
+  <a href="tel:010-4215-0680" class="btn-white">📞 010-4215-0680 전화하기</a>
+</div>
+
+<footer>
+  <strong>책통클럽 쌍용더플래티넘부평센터</strong><br>
+  프리미엄 독서 교육 · Since 2001<br>
+  운영 시간: 월~금 13:00~19:00 · 문의: 010-4215-0680
+</footer>
+
+</body>
+</html>
