@@ -48,10 +48,28 @@ body { font-family:'Noto Sans KR', sans-serif; background:#fff; color:#1a1a2e; l
   letter-spacing:.5px; margin-bottom:24px;
 }
 .hero h1 {
-  font-size:clamp(32px,7vw,60px); font-weight:900;
-  letter-spacing:-1.5px; line-height:1.15; margin-bottom:16px;
+  font-size:clamp(36px,7vw,64px); font-weight:900;
+  letter-spacing:-1.5px; line-height:1.2; margin-bottom:16px;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.25);
 }
-.hero h1 em { color:#90CAF9; font-style:normal; }
+.hero h1 em {
+  font-style:normal;
+  background: linear-gradient(90deg, #FDE68A, #FCD34D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero h1 .hl {
+  position:relative; display:inline-block;
+}
+.hero h1 .hl::after {
+  content:'';
+  position:absolute; left:0; bottom:2px;
+  width:100%; height:6px;
+  background:linear-gradient(90deg,#FDE68A,#FCD34D);
+  border-radius:4px; opacity:0.7;
+  z-index:-1;
+}
 .hero .sub {
   font-size:clamp(15px,2.5vw,20px); opacity:.9;
   margin-bottom:12px; font-weight:400;
@@ -326,7 +344,7 @@ footer strong { color:#fff; font-size:15px; }
 <!-- 히어로 -->
 <header class="hero">
   <div class="hero-badge">⭐ since 2001 · 프리미엄 독서 교육</div>
-  <h1>책<em>으로</em> 통하는<br>아이들</h1>
+  <h1>책<em>으로</em> 통하는<br><span class="hl">아이들</span></h1>
   <p class="sub">스스로 읽고, 생각하고, 표현하는 힘</p>
   <div class="center-name">책통클럽 쌍용더플래티넘부평센터</div>
   <div class="hero-btns">
