@@ -400,6 +400,25 @@ footer strong { color:#fff; font-size:15px; }
   margin-bottom:16px; letter-spacing:-.3px;
   padding-left:14px; border-left:4px solid #3B82F6;
 }
+.keyword-row {
+  display:flex; align-items:center; justify-content:center;
+  gap:12px; margin-bottom:36px; flex-wrap:wrap;
+}
+.keyword-item {
+  background:#fff; border:1.5px solid #DBEAFE;
+  border-radius:16px; padding:20px 24px; text-align:center;
+  flex:1; min-width:160px; max-width:220px;
+  box-shadow:0 2px 10px rgba(21,101,192,.07);
+}
+.kw-label {
+  display:inline-block;
+  background:linear-gradient(135deg,#1E40AF,#3B82F6);
+  color:#fff; font-size:15px; font-weight:900;
+  padding:5px 18px; border-radius:20px; margin-bottom:10px;
+  letter-spacing:1px;
+}
+.keyword-item p { font-size:13px; color:#4B5563; line-height:1.6; }
+.keyword-arrow { font-size:22px; color:#93C5FD; font-weight:700; flex-shrink:0; }
 .closing-block {
   margin-top:40px; background:#F0F7FF;
   border-radius:20px; padding:36px 32px;
@@ -738,30 +757,13 @@ footer strong { color:#fff; font-size:15px; }
       </div>
     </div>
 
-    <!-- 메타인지 3단계 -->
-    <div class="brain-sub-title">메타인지 독서 3단계</div>
-    <div class="meta-steps">
-      <div class="meta-step">
-        <div class="meta-step-label">독서 전</div>
-        <div class="meta-step-content">
-          <h4>문제의식 갖기 · 분석의 단계</h4>
-          <p>'내가 이 책에서 무엇을 얻고 싶은지', '이 글의 구조가 어떠할지'를 미리 짐작하는 것이 메타인지의 시작입니다.</p>
-        </div>
-      </div>
-      <div class="meta-step">
-        <div class="meta-step-label">독서 중</div>
-        <div class="meta-step-content">
-          <h4>모니터링하기 · 내용 연결</h4>
-          <p>"왜 여기서 이해가 안 되지?", "앞에서 본 내용과 어떻게 연결되지?" 스스로 질문을 던지며 지식의 틈을 정확히 짚어냅니다.</p>
-        </div>
-      </div>
-      <div class="meta-step">
-        <div class="meta-step-label">독서 후</div>
-        <div class="meta-step-content">
-          <h4>인출 및 정교화 · 지식의 그물망</h4>
-          <p>읽은 내용을 자신의 언어로 요약하고, 이미 알고 있는 지식과 연결하며 촘촘한 지식의 그물망을 만듭니다.</p>
-        </div>
-      </div>
+    <!-- 키워드 요약 -->
+    <div class="keyword-row">
+      <div class="keyword-item"><span class="kw-label">분석</span><p>읽기 전, 목적과 구조를 먼저 짚는다</p></div>
+      <div class="keyword-arrow">→</div>
+      <div class="keyword-item"><span class="kw-label">연결</span><p>읽는 중, 모르는 부분을 스스로 질문한다</p></div>
+      <div class="keyword-arrow">→</div>
+      <div class="keyword-item"><span class="kw-label">인출</span><p>읽은 후, 자신의 언어로 꺼내어 정착시킨다</p></div>
     </div>
 
     <!-- 인용구 -->
