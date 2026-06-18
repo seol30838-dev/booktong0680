@@ -425,12 +425,21 @@ footer strong { color:#fff; font-size:15px; }
 }
 .closing-text { font-size:15px; color:#374151; line-height:1.9; margin-bottom:20px; }
 .closing-text strong { color:#1E40AF; }
-.closing-quote {
-  font-size:17px; font-weight:800; color:#1E40AF;
-  line-height:1.7; text-align:center;
-  border-top:1.5px solid #DBEAFE; padding-top:20px;
+.closing-two-col {
+  display:grid; grid-template-columns:1fr 1fr; gap:20px;
+  border-top:1.5px solid #DBEAFE; padding-top:20px; margin-top:4px;
 }
-.closing-quote em { font-style:normal; color:#3B82F6; }
+.closing-col { }
+.closing-col-tag {
+  display:inline-block;
+  background:linear-gradient(135deg,#1E40AF,#3B82F6);
+  color:#fff; font-size:13px; font-weight:800;
+  padding:4px 16px; border-radius:20px;
+  margin-bottom:12px; letter-spacing:.5px;
+}
+.closing-col p { font-size:14px; color:#374151; line-height:1.8; }
+.closing-col p strong { color:#1E40AF; }
+@media(max-width:480px){ .closing-two-col { grid-template-columns:1fr; gap:16px; } }
 
 /* ── 정독법 훈련 원리 ── */
 .retrieval-block { margin-bottom:44px; }
@@ -770,14 +779,22 @@ footer strong { color:#fff; font-size:15px; }
     <div class="quote-block">
       <div class="quote-mark">"</div>
       <p class="quote-text">꺼내는 것은 집어넣는 것보다<br>훨씬 더 좋은 저장 방법입니다.</p>
-      <p class="quote-author">— 인지심리학자 김경일 교수</p>
       <p class="quote-desc">책을 반복해서 읽거나 밑줄을 긋는 행동은 뇌를 수동적인 상태로 머물게 합니다. 반면 책을 덮고 방금 읽은 내용을 스스로 꺼내보는 행위는 정보를 장기 기억으로 이동시키는 가장 효율적인 방법입니다.</p>
     </div>
 
     <!-- 맺음말 -->
     <div class="closing-block">
       <p class="closing-text">앞으로의 시대는 <strong>평생 학습</strong>의 시대입니다. 단순한 지식 암기는 AI가 대체할지 모르지만, 스스로 생각하고 내용을 꺼내어 자신의 지식으로 만드는 <strong>메타인지 능력</strong>은 아이들이 평생을 살아가며 가질 수 있는 가장 큰 무기가 됩니다.</p>
-      <div class="closing-quote">"지금 우리 아이에게 필요한 것은 더 많은 지식이 아니라,<br>지식을 다루는 <em>'생각의 연장통'</em>입니다."</div>
+      <div class="closing-two-col">
+        <div class="closing-col">
+          <div class="closing-col-tag">정독법 훈련</div>
+          <p>문장 하나하나를 씹어 삼키듯 읽으며 <strong>활자 인지 능력</strong>을 키웁니다. 읽고 덮고 꺼내는 반복 과정을 통해 내용이 단기 기억에 머물지 않고 <strong>장기 기억으로 깊이 저장</strong>됩니다. 이 과정에서 아이는 자연스럽게 "내가 무엇을 알고 모르는지"를 스스로 판단하는 메타인지를 훈련합니다.</p>
+        </div>
+        <div class="closing-col">
+          <div class="closing-col-tag">탐구독서</div>
+          <p>책을 읽은 후 워크북을 통해 <strong>자신의 언어로 요약하고 표현</strong>합니다. 단순히 줄거리를 쓰는 것이 아니라, 읽은 내용을 이미 알고 있는 지식과 연결하며 <strong>지식의 그물망</strong>을 촘촘히 만들어 갑니다. 이 출력의 과정이 지식을 아이의 것으로 탄탄하게 굳혀줍니다.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
