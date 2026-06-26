@@ -357,6 +357,44 @@ body { font-family:'Noto Sans KR', sans-serif; background:#fff; color:#1a1a2e; l
 }
 .btn-white:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(0,0,0,.25); }
 
+/* ── QR 모달 ── */
+.qr-overlay {
+  display:none; position:fixed; inset:0;
+  background:rgba(0,0,0,.6); z-index:9998;
+  align-items:center; justify-content:center;
+}
+.qr-overlay.open { display:flex; }
+.qr-box {
+  background:#fff; border-radius:24px;
+  padding:36px 32px; text-align:center;
+  max-width:340px; width:90%;
+  position:relative;
+  box-shadow:0 20px 60px rgba(0,0,0,.25);
+  animation:qrPop .25s ease;
+}
+@keyframes qrPop { from{transform:scale(.85);opacity:0} to{transform:scale(1);opacity:1} }
+.qr-close {
+  position:absolute; top:14px; right:18px;
+  font-size:20px; color:#9CA3AF;
+  background:none; border:none; cursor:pointer;
+}
+.qr-tag {
+  display:inline-block; background:#DBEAFE; color:#1565C0;
+  font-size:12px; font-weight:700; letter-spacing:2px;
+  padding:4px 14px; border-radius:20px; margin-bottom:12px;
+}
+.qr-title { font-size:20px; font-weight:900; color:#0D1B4B; margin-bottom:8px; }
+.qr-desc { font-size:13px; color:#6B7280; line-height:1.7; margin-bottom:20px; }
+.qr-img { width:200px; height:200px; object-fit:contain; margin-bottom:20px; border:2px solid #DBEAFE; border-radius:12px; padding:8px; }
+.qr-tel {
+  display:block; background:#F0F7FF; color:#1565C0;
+  font-size:14px; font-weight:700;
+  padding:12px 20px; border-radius:12px;
+  text-decoration:none; border:1.5px solid #DBEAFE;
+  transition:background .2s;
+}
+.qr-tel:hover { background:#DBEAFE; }
+
 /* ── 플로팅 전화버튼 ── */
 .float-call {
   position:fixed; bottom:24px; right:24px; z-index:300;
@@ -639,7 +677,7 @@ footer strong { color:#fff; font-size:15px; }
 <!-- 상단 고정 헤더 -->
 <nav class="site-nav">
   <span class="nav-logo">📚 책통클럽 쌍용더플래티넘부평센터</span>
-  <a href="tel:010-4215-0680" class="nav-cta">📞 상담 신청</a>
+  <a href="javascript:void(0)" onclick="openQR()" class="nav-cta">📝 무료 체험 신청</a>
 </nav>
 
 <!-- 히어로 -->
@@ -649,7 +687,7 @@ footer strong { color:#fff; font-size:15px; }
   <p class="sub">스스로 읽고, 생각하고, 표현하는 힘</p>
   <div class="center-name">책통클럽 쌍용더플래티넘부평센터</div>
   <div class="hero-btns">
-    <a href="tel:010-4215-0680" class="btn-main">📞 무료 체험 신청하기</a>
+    <a href="javascript:void(0)" onclick="openQR()" class="btn-main">📝 무료 체험 신청하기</a>
     <a href="https://blog.naver.com/booktong0680" target="_blank" class="btn-outline">블로그 보기 →</a>
   </div>
 </header>
@@ -879,6 +917,18 @@ footer strong { color:#fff; font-size:15px; }
   </div>
 </section>
 
+<!-- QR 모달 -->
+<div class="qr-overlay" id="qr-modal" onclick="closeQR()">
+  <div class="qr-box" onclick="event.stopPropagation()">
+    <button class="qr-close" onclick="closeQR()">✕</button>
+    <div class="qr-tag">무료 체험 신청</div>
+    <h3 class="qr-title">QR코드를 스캔해주세요</h3>
+    <p class="qr-desc">카메라로 QR코드를 스캔하면<br>네이버 체험 수업 신청 폼으로 이동합니다</p>
+    <img src="체험수업신청.jpg" alt="체험 수업 신청 QR코드" class="qr-img">
+    <a href="tel:010-4215-0680" class="qr-tel">📞 전화로 신청하기 · 010-4215-0680</a>
+  </div>
+</div>
+
 <!-- 라이트박스 -->
 <div class="lb-overlay" id="lb" onclick="closeLb()">
   <span class="lb-close" onclick="closeLb()">✕</span>
@@ -916,7 +966,7 @@ footer strong { color:#fff; font-size:15px; }
     📚 책통클럽 쌍용더플래티넘부평센터
     <span>지금 무료 체험을 신청해보세요!</span>
   </div>
-  <a href="tel:010-4215-0680" class="sticky-cta-btn">📞 무료 체험 신청</a>
+  <a href="javascript:void(0)" onclick="openQR()" class="sticky-cta-btn">📝 무료 체험 신청</a>
 </div>
 
 <script>
@@ -930,6 +980,8 @@ window.addEventListener('scroll', function(){
   else { bar.classList.remove('show'); }
 });
 
+function openQR(){ document.getElementById('qr-modal').classList.add('open'); }
+function closeQR(){ document.getElementById('qr-modal').classList.remove('open'); }
 var cnExpanded=false;
 function toggleCardnews(){
   var items=document.querySelectorAll('.cn-more');
