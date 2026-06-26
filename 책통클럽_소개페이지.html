@@ -369,6 +369,35 @@ body { font-family:'Noto Sans KR', sans-serif; background:#fff; color:#1a1a2e; l
 }
 .float-call:hover { transform:scale(1.1); }
 
+/* ── Sticky 무료체험 신청 바 ── */
+.sticky-cta {
+  position:fixed; bottom:0; left:0; right:0; z-index:299;
+  background:linear-gradient(90deg,#0D47A1,#1976D2);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 24px;
+  box-shadow:0 -4px 20px rgba(13,71,161,.25);
+  transform:translateY(100%);
+  transition:transform .35s ease;
+}
+.sticky-cta.show { transform:translateY(0); }
+.sticky-cta-text { color:#fff; font-size:14px; font-weight:700; line-height:1.4; }
+.sticky-cta-text span { display:block; font-size:12px; font-weight:400; opacity:.8; margin-top:2px; }
+.sticky-cta-btn {
+  background:#fff; color:#1565C0;
+  font-size:14px; font-weight:800;
+  padding:10px 22px; border-radius:24px;
+  text-decoration:none; white-space:nowrap;
+  box-shadow:0 2px 10px rgba(0,0,0,.15);
+  transition:transform .2s;
+  flex-shrink:0; margin-right:70px;
+}
+.sticky-cta-btn:hover { transform:scale(1.04); }
+@media(max-width:480px){
+  .sticky-cta { padding:12px 16px; }
+  .sticky-cta-text { font-size:13px; }
+  .sticky-cta-btn { font-size:13px; padding:9px 16px; margin-right:60px; }
+}
+
 /* ── 푸터 ── */
 footer {
   background:#0D47A1; color:#BFDBFE;
@@ -881,10 +910,26 @@ footer strong { color:#fff; font-size:15px; }
 <!-- 플로팅 전화버튼 -->
 <a href="tel:010-4215-0680" class="float-call" title="전화 상담">📞</a>
 
+<!-- Sticky 무료체험 신청 바 -->
+<div class="sticky-cta" id="sticky-cta">
+  <div class="sticky-cta-text">
+    📚 책통클럽 쌍용더플래티넘부평센터
+    <span>지금 무료 체험을 신청해보세요!</span>
+  </div>
+  <a href="tel:010-4215-0680" class="sticky-cta-btn">📞 무료 체험 신청</a>
+</div>
+
 <script>
 function openLb(el){ document.getElementById('lb-img').src=el.querySelector('img').src; document.getElementById('lb').classList.add('open'); }
 function closeLb(){ document.getElementById('lb').classList.remove('open'); }
 document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeLb(); });
+// Sticky CTA 스크롤 제어
+window.addEventListener('scroll', function(){
+  var bar = document.getElementById('sticky-cta');
+  if(window.scrollY > 400){ bar.classList.add('show'); }
+  else { bar.classList.remove('show'); }
+});
+
 var cnExpanded=false;
 function toggleCardnews(){
   var items=document.querySelectorAll('.cn-more');
