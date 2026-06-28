@@ -9,7 +9,6 @@
 <meta property="og:type" content="website">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>책통클럽 쌍용더플래티넘부평센터</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -1056,84 +1055,6 @@ window.addEventListener('scroll', function(){
 
 function openQR(){ document.getElementById('qr-modal').classList.add('open'); }
 function closeQR(){ document.getElementById('qr-modal').classList.remove('open'); }
-
-/* ── 커스텀 커서 ── */
-(function(){
-  var cursor = document.createElement('div');
-  cursor.id = 'custom-cursor';
-  cursor.style.cssText = 'position:fixed;top:0;left:0;width:22px;height:22px;background:rgba(21,101,192,0.55);border:2px solid #1565C0;border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:transform .12s ease,background .2s;backdrop-filter:blur(2px);';
-  document.body.appendChild(cursor);
-  var trail = document.createElement('div');
-  trail.style.cssText = 'position:fixed;top:0;left:0;width:8px;height:8px;background:#3B82F6;border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:left .08s ease,top .08s ease;';
-  document.body.appendChild(trail);
-  var mx=0,my=0,tx=0,ty=0;
-  document.addEventListener('mousemove',function(e){
-    mx=e.clientX; my=e.clientY;
-    cursor.style.left=mx+'px'; cursor.style.top=my+'px';
-    setTimeout(function(){ trail.style.left=mx+'px'; trail.style.top=my+'px'; },60);
-    spawnParticle(e.clientX, e.clientY);
-  });
-  document.addEventListener('mousedown',function(){ cursor.style.transform='translate(-50%,-50%) scale(0.7)'; cursor.style.background='rgba(21,101,192,0.85)'; });
-  document.addEventListener('mouseup',function(){ cursor.style.transform='translate(-50%,-50%) scale(1)'; cursor.style.background='rgba(21,101,192,0.55)'; });
-})();
-
-/* ── 마우스 파티클 ── */
-var particleEmojis = ['📖','✏️','⭐','💡','📝','✨'];
-var lastParticle = 0;
-function spawnParticle(x, y){
-  var now = Date.now();
-  if(now - lastParticle < 120) return;
-  lastParticle = now;
-  var el = document.createElement('div');
-  var emoji = particleEmojis[Math.floor(Math.random()*particleEmojis.length)];
-  var size = 14 + Math.random()*10;
-  var dx = (Math.random()-0.5)*60;
-  var dy = -(40 + Math.random()*40);
-  el.textContent = emoji;
-  el.style.cssText = 'position:fixed;left:'+x+'px;top:'+y+'px;font-size:'+size+'px;pointer-events:none;z-index:99997;user-select:none;transform:translate(-50%,-50%);opacity:1;transition:all 0.8s ease-out;';
-  document.body.appendChild(el);
-  requestAnimationFrame(function(){
-    requestAnimationFrame(function(){
-      el.style.transform = 'translate(calc(-50% + '+dx+'px), calc(-50% + '+dy+'px))';
-      el.style.opacity = '0';
-    });
-  });
-  setTimeout(function(){ el.remove(); }, 850);
-}
-
-/* ── 클릭 효과 ── */
-document.addEventListener('click', function(e){
-  var ripple = document.createElement('div');
-  ripple.style.cssText = 'position:fixed;left:'+e.clientX+'px;top:'+e.clientY+'px;width:6px;height:6px;border:2px solid #1565C0;border-radius:50%;pointer-events:none;z-index:99996;transform:translate(-50%,-50%) scale(1);opacity:1;transition:transform .5s ease,opacity .5s ease;';
-  document.body.appendChild(ripple);
-  requestAnimationFrame(function(){
-    requestAnimationFrame(function(){
-      ripple.style.transform = 'translate(-50%,-50%) scale(12)';
-      ripple.style.opacity = '0';
-    });
-  });
-  setTimeout(function(){ ripple.remove(); }, 550);
-  /* 클릭 시 별 터트리기 */
-  for(var i=0;i<5;i++){
-    (function(i){
-      setTimeout(function(){
-        var star = document.createElement('div');
-        var angle = (i/5)*Math.PI*2;
-        var dist = 35 + Math.random()*25;
-        star.textContent = ['⭐','✨','💫'][Math.floor(Math.random()*3)];
-        star.style.cssText = 'position:fixed;left:'+e.clientX+'px;top:'+e.clientY+'px;font-size:16px;pointer-events:none;z-index:99997;transform:translate(-50%,-50%);opacity:1;transition:all 0.6s ease-out;';
-        document.body.appendChild(star);
-        requestAnimationFrame(function(){
-          requestAnimationFrame(function(){
-            star.style.transform = 'translate(calc(-50% + '+Math.cos(angle)*dist+'px), calc(-50% + '+Math.sin(angle)*dist+'px))';
-            star.style.opacity = '0';
-          });
-        });
-        setTimeout(function(){ star.remove(); }, 650);
-      }, i*40);
-    })(i);
-  }
-});
 var cnExpanded=false;
 function toggleCardnews(){
   var items=document.querySelectorAll('.cn-more');
