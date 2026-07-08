@@ -599,81 +599,88 @@ footer strong { color:#fff; font-size:15px; }
   .site-nav .nav-cta { font-size:12px; padding:6px 12px; }
 
   /* 히어로 */
-  .hero { padding:60px 16px 50px; min-height:80vh; }
-  .hero h1 { font-size:28px; letter-spacing:-1px; }
-  .hero .sub { font-size:14px; }
-  .hero .center-name { font-size:13px; padding:5px 14px; }
-  .btn-main { font-size:15px; padding:14px 28px; }
-  .btn-outline { font-size:14px; padding:12px 20px; }
+  .hero { padding:56px 18px 48px; min-height:75vh; }
+  .hero-badge { font-size:11px; padding:5px 14px; margin-bottom:18px; }
+  .hero h1 { font-size:30px; letter-spacing:-.5px; line-height:1.25; }
+  .hero .sub { font-size:14px; line-height:1.6; }
+  .hero .center-name { font-size:12px; padding:5px 12px; margin-bottom:24px; }
+  .hero-btns { flex-direction:column; align-items:center; gap:10px; }
+  .btn-main { font-size:15px; padding:14px 32px; width:100%; max-width:280px; text-align:center; }
+  .btn-outline { font-size:14px; padding:12px 24px; width:100%; max-width:280px; text-align:center; }
 
   /* 공통 섹션 */
-  .sec { padding:48px 16px; }
-  .sec-title { font-size:22px; }
-  .sec-desc { font-size:14px; margin-bottom:28px; }
+  .sec { padding:44px 16px; }
+  .sec-tag { font-size:11px; }
+  .sec-title { font-size:20px; letter-spacing:-.5px; line-height:1.35; }
+  .sec-desc { font-size:13.5px; margin-bottom:24px; line-height:1.75; }
 
   /* 체크리스트 */
-  .check-grid { grid-template-columns:1fr; gap:10px; margin-bottom:28px; }
-  .check-item { padding:14px 16px; }
-  .check-item p { font-size:14px; }
-  .need-banner { padding:22px 16px; }
-  .need-banner strong { font-size:17px; }
-  .need-banner p { font-size:15px; }
+  .check-grid { grid-template-columns:1fr; gap:8px; margin-bottom:22px; }
+  .check-item { padding:12px 14px; gap:10px; }
+  .check-icon { font-size:18px; }
+  .check-item p { font-size:13.5px; }
+  .need-banner { padding:22px 18px; border-radius:14px; }
+  .need-banner strong { font-size:16px; }
+  .need-banner p { font-size:13.5px; line-height:1.75; }
 
   /* 이유 카드 */
   .why-grid { grid-template-columns:1fr; gap:10px; }
-  .why-card { padding:22px 18px; }
+  .why-card { padding:20px 16px; border-radius:16px; }
+  .why-num { font-size:11px; }
+  .why-card h3 { font-size:16px; }
+  .why-card p { font-size:13px; }
 
-  /* 특징 카드 */
-  .feat-grid { grid-template-columns:1fr 1fr; gap:10px; }
-  .feat-card { padding:20px 14px; }
-  .feat-icon { width:48px; height:48px; font-size:22px; }
-  .feat-card h3 { font-size:14px; }
-  .feat-card p { font-size:12px; }
+  /* 특징 카드 (프로그램 소개) */
+  .feat-grid { grid-template-columns:1fr; gap:10px; }
+  .feat-card { padding:22px 18px; text-align:left; display:flex; align-items:flex-start; gap:14px; border-radius:16px; }
+  .feat-icon { width:44px; height:44px; font-size:20px; flex-shrink:0; margin:0; }
+  .feat-card h3 { font-size:15px; margin-bottom:6px; }
+  .feat-card p { font-size:13px; }
 
   /* 수업 구성 */
-  .lesson-wrap { gap:24px; }
-  .step-dot { min-width:38px; height:38px; font-size:11px; }
+  .lesson-wrap { gap:20px; }
+  .step-dot { min-width:36px; height:36px; font-size:11px; }
   .step-info h4 { font-size:14px; }
-  .step-info p { font-size:12px; }
-
-  /* 수업 사진 */
-  .photo-strip { grid-template-columns:1fr 1fr; }
-  .photo-strip img { height:160px; }
-  .photo-strip img:last-child { display:none; }
+  .step-info p { font-size:12.5px; }
 
   /* 철학 카드 */
   .phil-grid { grid-template-columns:1fr 1fr; gap:10px; }
-  .phil-card { padding:20px 14px; }
-  .phil-num { font-size:32px; }
-  .phil-card h4 { font-size:14px; }
-  .phil-card p { font-size:12px; }
-
-  /* 수강료 */
-  .price-grid { grid-template-columns:1fr; gap:12px; }
-  .price-card { padding:24px 18px; }
-  .price-amount { font-size:28px; }
-
-  /* 운영 안내 */
-  .info-grid { grid-template-columns:1fr; gap:10px; }
+  .phil-card { padding:18px 12px; border-radius:14px; }
+  .phil-num { font-size:28px; }
+  .phil-card h4 { font-size:13px; }
+  .phil-card p { font-size:11.5px; }
 
   /* 뇌과학 */
   .brain-grid { grid-template-columns:1fr; gap:12px; }
-  .closing-block { padding:24px 18px; }
-  .closing-quote { font-size:15px; }
+  .brain-card { padding:22px 16px; border-radius:16px; }
+  .brain-card h3 { font-size:16px; }
+  .brain-card p { font-size:13px; }
+  .brain-tip { font-size:12px; }
+  .closing-block { padding:22px 16px; border-radius:16px; }
+  .closing-text { font-size:13.5px; }
+
+  /* 갤러리 */
+  .gallery-grid { grid-template-columns:repeat(2,1fr) !important; gap:8px !important; }
 
   /* 카드뉴스 */
-  .cardnews-grid { grid-template-columns:1fr 1fr; gap:10px; }
+  .cardnews-grid { grid-template-columns:1fr 1fr; gap:8px; }
 
   /* 연락처 */
-  .cta-section { padding:52px 16px; }
-  .contact-cards { gap:10px; }
-  .contact-card { min-width:130px; padding:14px 16px; }
+  .cta-section { padding:48px 16px; }
+  .contact-cards { gap:8px; }
+  .contact-card { min-width:120px; padding:12px 14px; }
   .contact-card .label { font-size:11px; }
-  .contact-card .value { font-size:16px; }
-  .btn-white { font-size:15px; padding:14px 32px; }
+  .contact-card .value { font-size:15px; }
+  .btn-white { font-size:14px; padding:13px 28px; }
 
   /* 푸터 */
-  footer { font-size:12px; padding:24px 16px; }
+  footer { font-size:11.5px; padding:22px 16px; }
+}
+
+@media(max-width:360px){
+  .hero h1 { font-size:26px; }
+  .sec-title { font-size:18px; }
+  .phil-grid { grid-template-columns:1fr; }
 }
 </style>
 </head>
@@ -908,7 +915,7 @@ footer strong { color:#fff; font-size:15px; }
     <div class="sec-tag">수업 현장</div>
     <h2 class="sec-title">책통클럽의 생생한 수업 현장</h2>
     <p class="sec-desc">아이들이 직접 읽고, 찾고, 쓰는 살아있는 수업입니다.</p>
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:20px;">
+    <div class="gallery-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:20px;">
       <div style="border-radius:12px; overflow:hidden; aspect-ratio:1/1;"><img src="gallery1.png" alt="수업 현장" style="width:100%; height:100%; object-fit:cover; filter:brightness(1.4) contrast(1.05) saturate(1.1);"></div>
       <div style="border-radius:12px; overflow:hidden; aspect-ratio:1/1;"><img src="gallery2.png" alt="수업 현장" style="width:100%; height:100%; object-fit:cover; filter:brightness(1.4) contrast(1.05) saturate(1.1);"></div>
       <div style="border-radius:12px; overflow:hidden; aspect-ratio:1/1;"><img src="gallery3.jpg" alt="수업 현장" style="width:100%; height:100%; object-fit:cover; filter:brightness(1.05) contrast(1.05) saturate(1.05);"></div>
